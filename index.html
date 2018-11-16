@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>tic_tac_toe</title>
+        <script type="text/javascript">
+        	//0 represents X and 1 represents O
+var shape=["https://png2.kisspng.com/sh/b41cb1953f6736a8cae9be9bc330e72c/L0KzQYm3VcAyN5x2iZH0aYP2gLBuTgRqa155edU2dHBoPbFBj71pd51ufNNELYTsc377gfMufJDqRdlqbXWwcr38hb1kepD4i58AYXW8QrW6WfYzaWQ7UJCENkC0Roa9VcE2OmY3S6IEMEW8SYSCTwBvbz==/kisspng-tic-tac-toe-oxo-holiday-tic-tac-toe-game-blue-cross-5ae92d39f2a368.9601656515252309059939.png","https://upload.wikimedia.org/wikipedia/en/thumb/c/c5/Map-circle-black.svg/400px-Map-circle-black.svg.png"];
+var shp=0; //counter for shapes
+var sq=[];
+window.onload=function(){
+     setInterval(function(){
+     winstatus();
+    
+},500);
+}
+
+function putx(){
+        document.getElementById("x").style.backgroundColor="red";
+    document.getElementById("o").style.backgroundColor="blue";
+    shp=0;
+}
+function puto(){
+        document.getElementById("o").style.backgroundColor="red";
+    document.getElementById("x").style.backgroundColor="blue";
+    shp=1;
+}
+function move(x){
+var pos=Number(x.substr(-1))-1;
+if(sq[pos]!="0"&&sq[pos]!="1"){ document.getElementById(x).style.backgroundImage="url('"+  shape[shp]+"')";
+  sq[pos]=shp;
+ if(shp==0){
+ puto()
+ }
+ else{
+     putx();
+ }
+ }
+}
+function reset(){
+  for(i=1;i<10;i++){
+document.getElementById("sq"+i).style.backgroundImage="url()";
+sq=[];
+}
+}
+function winstatus(){
+
+var winner;
+
+//check rows
+ if((sq[0]==sq[1]&&sq[1]==sq[2])&&(sq[0]=="1"||sq[0]=="0")){
+        winner=sq[0];
+        
+    }
+    if((sq[3]==sq[4]&&sq[4]==sq[5])&&(sq[3]=="1"||sq[3]=="0")){
+        
+        winner=sq[3];
+    }
+    if((sq[6]==sq[7]&&sq[7]==sq[8])&&(sq[6]=="1"||sq[6]=="0")){
+        winner=sq[6];
+        
+    }
+    //check columns
+    if((sq[0]==sq[3]&&sq[3]==sq[6])&&(sq[0]=="1"||sq[0]=="0")){
+        winner=sq[0];
+        
+    }
+    if((sq[1]==sq[4]&&sq[4]==sq[7])&&(sq[1]=="1"||sq[1]=="0")){
+        
+        winner=sq[1];
+    }
+    if((sq[2]==sq[5]&&sq[5]==sq[8])&&(sq[2]=="1"||sq[2]=="0")){
+        winner=sq[2];
+        
+    }
+    //check diag
+    if((sq[0]==sq[4]&&sq[4]==sq[8])&&(sq[0]=="1"||sq[0]=="0")){
+        
+        winner=sq[0];
+    }
+        if((sq[2]==sq[4]&&sq[4]==sq[6])&&(sq[2]=="1"||sq[2]=="0")){
+        
+        winner=sq[2];
+    }
+    if(winner=="0"){
+        alert("Player 1 Won!");
+        reset();
+    }
+    else if(winner=="1"){
+        alert("Player 2 Won!");
+        reset();
+    }
+}
+        </script>
+    </head>
+    <body>
+    	<style>
+body {
+    background-color:skyblue;
+}
+#game{
+    width:265px;
+    height:265px;
+    background-color:yellow;
+    position:absolute;
+    top:80px;
+    left:47px;
+}
+#sq1{
+    width:85px;
+    height:85px;
+    background-color:skyblue;
+    border-right:5px solid black;
+    border-bottom:5px solid black;
+    position:absolute ;
+    top:0px;
+    background-size:cover;
+}
+#sq2{
+    width:85px;
+    height:85px;
+    background-color:skyblue;
+    border-right:5px solid black;
+    border-bottom:5px solid black;
+    background-size:cover;
+    position:absolute  ;
+    top:0px;
+    left:90px;
+}
+#sq3{
+    width:85px;
+    height:85px;
+    background-color:skyblue;
+    border-bottom:5px solid black;
+    position:absolute ;
+    top:0px;
+    left:180px;
+    background-size:cover;
+    
+}
+#sq4{
+    width:85px;
+    height:85px;
+    background-color:skyblue;
+    border-bottom:5px solid black;
+    border-right:5px solid black;
+    position:absolute;
+    top:90px;
+    left:0px;
+    background-size:cover;
+}
+#sq5{
+    width:85px;
+    height:85px;
+    background-color:skyblue;
+    border-bottom:5px solid black;
+    border-right:5px solid black;
+    position:absolute;
+    top:90px;
+    left:90px;
+    background-size:cover;
+}
+#sq6{
+    width:85px;
+    height:85px;
+    background-color:skyblue;
+    border-bottom:5px solid black;
+    position:absolute;
+    top:90px;
+    left:180px;
+    background-size:cover;
+}
+#sq7{
+    width:85px;
+    height:85px;
+    background-color:skyblue;
+    border-right:5px solid black;
+    position:absolute;
+    top:180px;
+    left:0px;
+    background-size:cover;
+}
+#sq8{
+    width:85px;
+    height:85px;
+    background-color:skyblue;
+    border-right:5px solid black;
+    position:absolute;
+    top:180px;
+    left:90px;
+    background-size:cover;
+}
+#sq9{
+    width:85px;
+    height:85px;
+    background-color:skyblue;
+    position:absolute;
+    top:180px;
+    left:180px;
+    background-size:cover;
+}
+#x{
+    width:80px;
+    height:40px;
+    text-align:center;
+    padding-top:18px;
+    color:white;
+    background-color:red;
+    position:absolute;
+    top:300px;
+    left:10px;
+}
+#o{
+    width:80px;
+    height:40px;
+    text-align:center;
+    padding-top:18px;
+    color:white;
+    background-color:blue;
+    position:absolute;
+    top:300px;
+    left:180px;
+}
+#reset{
+    width:80px;
+    height:30px;
+}
+</style>
+        <div id="game">
+            <div id="sq1" onclick="move('sq1')"></div>
+            <div id="sq2" onclick="move('sq2')"></div>
+            <div id="sq3" onclick="move('sq3')"></div>
+            <div id="sq4" onclick="move('sq4')"></div>
+            <div id="sq5" onclick="move('sq5')"></div>
+            <div id="sq6" onclick="move('sq6')"></div>
+            <div id="sq7" onclick="move('sq7')"></div>
+            <div id="sq8" onclick="move('sq8')"></div>
+            <div id="sq9" onclick="move('sq9')"></div>
+            <div id="x">X</div>
+            <div id="o">O</div>
+        </div>
+        <button onclick="reset()" id="reset">Reset</button>
+       </body>
+</html>
